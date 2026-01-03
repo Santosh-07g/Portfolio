@@ -57,7 +57,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="md:w-1/2.5 h-[800px] rounded-2xl overflow-hidden shadow-lg shadow-black/30"
+            className="md:w-1/2.5 h-200 rounded-2xl overflow-hidden shadow-lg shadow-black/30"
           >
             <img
               src={assets.projectImg3}
