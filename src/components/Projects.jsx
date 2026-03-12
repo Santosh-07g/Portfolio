@@ -8,23 +8,29 @@ const projects = [
   {
     title: "AI Mock Interview Application",
     description: "An AI-powered mock interview app using React, Firebase and OpenAI API.",
-    image: assets.projectImg7, 
-    tech: ["JavaScript", "TypeScript", "React", "Firebase", "Vapi API"]
+    image: assets.projectImg7,
+    tech: ["JavaScript", "TypeScript", "React", "Firebase", "Vapi API"],
+    demoLink: "https://mock-interview-pg48.vercel.app/",
+    codeLink: "https://github.com/Santosh-07g/mock-interview.git"
   },
   {
     title: "Portfolio Website",
     description: "Personal portfolio built with React and Tailwind CSS.",
     image: assets.projectImg4,
-    tech: ["React", "Javascript","Tailwind", "Framer Motion"]
+    tech: ["React", "Javascript", "Tailwind", "Framer Motion"],
+    demoLink: "https://portfolio-8zfo.vercel.app/",
+    codeLink: "https://github.com/Santosh-07g/portfolio"
   },
   {
     title: "AI Image Upscaler",
     description: "A web app that uses AI to upscale images while preserving quality.",
     image: assets.projectImg8,
-    tech: ["Next.js", "Replicate Api", "ShadCN/UI", "Tailwind CSS"]
-
-  },
+    tech: ["Next.js", "Replicate Api", "ShadCN/UI", "Tailwind CSS"],
+    demoLink: "https://ai-image-upscaler.vercel.app/",
+    codeLink: "https://github.com/Santosh-07g/ai-image-upscaler"
+  }
 ]
+
 
 const Projects = () => {
   return (
@@ -51,7 +57,7 @@ const Projects = () => {
           ))}
         </div>
         <div className="text-center mt-12">
-          <a href="#" className="inline-flex items-center px-6 py-3 border border-purple font-medium rounded-lg hover:bg-purple/20 transition duration-300">
+          <a href="https://github.com/dashboard" className="inline-flex items-center px-6 py-3 border border-purple font-medium rounded-lg hover:bg-purple/20 transition duration-300">
             <span>View More Projects</span>
             <FaArrowRight className='ml-2'/>
           </a>

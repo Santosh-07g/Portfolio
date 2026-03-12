@@ -4,7 +4,7 @@ import {
   FaCloud, FaRobot 
 } from 'react-icons/fa';
 
-import profileImg from '../assets/profile.png';
+import profileImg from '../assets/profile.jpg';
 import projectImg1 from '../assets/project1.avif';
 import projectImg2 from '../assets/project2.avif';
 import projectImg3 from '../assets/project3.jpg';
