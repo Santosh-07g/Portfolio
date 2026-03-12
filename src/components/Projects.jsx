@@ -22,12 +22,12 @@ const projects = [
     codeLink: "https://github.com/Santosh-07g/portfolio"
   },
   {
-    title: "AI Image Upscaler",
-    description: "A web app that uses AI to upscale images while preserving quality.",
+    title: "Movie Ticket Booking System ",
+    description: "Developed a full-stack movie ticket booking web application using Python and Django for backend development.",
     image: assets.projectImg8,
-    tech: ["Next.js", "Replicate Api", "ShadCN/UI", "Tailwind CSS"],
-    demoLink: "https://ai-image-upscaler.vercel.app/",
-    codeLink: "https://github.com/Santosh-07g/ai-image-upscaler"
+    tech: ["Python", "Django", "MySQL", "Javascript","HTML and CSS"],
+    demoLink: "https://pmax-cinema-production.up.railway.app/",
+    codeLink: "https://github.com/Santosh-07g/pmax-cinema"
   }
 ]
 

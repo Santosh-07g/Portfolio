@@ -15,7 +15,7 @@ const skills = [
     title: 'BACKEND DEVELOPMENT',
     description:
       'Proficient in Node.js and RESTful APIs to build scalable server-side applications.',
-    tags: ['Node.js', 'REST API']
+    tags: ['Django','Node.js', 'REST API','Django Rest Framework']
   },
   {
     icon: FaDatabase,
@@ -29,7 +29,7 @@ const skills = [
     title: 'DEPLOYMENT & CI/CD',
     description:
       'Experience with deployment platforms like Vercel and GitHub Actions for seamless delivery.',
-    tags: ['Vercel','GitHub Actions']
+    tags: ['Vercel','GitHub Actions','Render','Railway']
   }
 ]
 
