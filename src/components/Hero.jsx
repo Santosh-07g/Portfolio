@@ -17,32 +17,30 @@ const Hero = () => {
         {/* Left Side */}
         <div className='md:w-1/2 mb-10 md:mb-0'>
 
-          <h1 className='text-4xl md:text-6xl font-bold mb-4 text-white'>
+          <h1 className='text-3xl md:text-6xl font-bold mb-4 text-white'>
             Hi, I'm <span className='text-purple-500'>Santosh Gurkhe</span>
           </h1>
 
-           <h2 className='text-1xl md:text-4xl font-semibold mb-6 typewriter'>
+           <h2 className='text-1xl md:text-4xl font-semibold mb-4 typewriter'>
               SOFTWERE ENGINEER
             </h2>
 
           <p className='text-lg text-gray-300 mb-8 leading-relaxed max-w-lg'>
-            Software Engineer passionate about Full Stack Development,
-            AI-powered applications, and Data Structures & Algorithms.
-            Built an AI Mock Interview Platform.
+            Software Engineer passionate about Full Stack Development, AI, and DSA. Built an AI Mock Interview Platform.
           </p>
 
           {/* Buttons */}
           <div className='flex gap-4 flex-wrap mb-8'>
             <a
               href="#projects"
-              className='px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition duration-300'
+              className='px-3 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition duration-300'
             >
               View Work
             </a>
 
             <a
               href="#contact"
-              className='px-6 py-3 border border-purple-500 text-white rounded-lg font-medium hover:bg-purple-500/20 transition duration-300'
+              className='px-3 py-3 border border-purple-500 text-white rounded-lg font-medium hover:bg-purple-500/20 transition duration-300'
             >
               Contact Me
             </a>
@@ -107,7 +105,7 @@ const Hero = () => {
 
         {/* Right Side Image */}
         <div className='md:w-1/2 flex justify-center'>
-          <div className="relative w-72 h-72 md:w-96 md:h-96">
+          <div className="relative w-72 h-72 md:w-90 md:h-90">
 
             <div className='absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 blur-2xl opacity-40 animate-pulse'></div>
 
