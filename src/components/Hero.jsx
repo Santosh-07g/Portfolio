@@ -25,9 +25,9 @@ const Hero = () => {
               SOFTWERE ENGINEER
             </h2>
 
-          <p className='text-lg text-gray-300 mb-8 leading-relaxed max-w-lg'>
+          {/* <p className='text-lg text-gray-300 mb-8 leading-relaxed max-w-lg'>
             Software Engineer passionate about Full Stack Development, AI, and DSA. Built an AI Mock Interview Platform.
-          </p>
+          </p> */}
 
           {/* Buttons */}
           <div className='flex gap-4 flex-wrap mb-8'>
