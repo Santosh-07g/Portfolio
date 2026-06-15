@@ -21,9 +21,9 @@ const Hero = () => {
             Hi, I'm <span className='text-purple-500'>Santosh Gurkhe</span>
           </h1>
 
-          <h2 className='text-2xl md:text-5xl font-semibold mb-6 text-gray-200'>
-            SOFTWARE ENGINEER
-          </h2>
+           <h2 className='text-1xl md:text-4xl font-semibold mb-6 typewriter'>
+              SOFTWERE ENGINEER
+            </h2>
 
           <p className='text-lg text-gray-300 mb-8 leading-relaxed max-w-lg'>
             Software Engineer passionate about Full Stack Development,
