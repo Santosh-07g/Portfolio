@@ -3,9 +3,15 @@ import { motion } from 'framer-motion'
 
 const workData = [
   {
-    role: "Full Stack Developer Intern/Trainee",
+    role: "Software Engineer",
+    company: "MountBlue Technologies",
+    duration: "Jun 2026 - Present",
+    description: "Working on full-stack software development with a focus on building scalable web applications. Contributing to frontend and backend development using modern frameworks, REST APIs, and database design while collaborating in an agile team environment.",
+  },
+  {
+    role: "Full Stack Developer Intern",
     company: "Pentagon Space",
-    duration: "Nov-2025 Present",
+    duration: "Nov-2025 May-2026",
     description: "Gaining hands-on experience in full-stack development using Python, HTML, CSS, JavaScript,Reactjs, Django, Numpy and MySQL. Building responsive UI, backend logic, and database connectivity for multiple web applications.",
                   
   }

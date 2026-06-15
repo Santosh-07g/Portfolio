@@ -23,14 +23,14 @@
   white-space: nowrap;
   overflow: hidden;
   width: 0;
-  animation: typing 3s steps(15, end) forwards,
+  animation: typing 3s steps(17, end) forwards,
              blink-caret 0.75s step-end 4;
 }
 
 
 @keyframes typing {
   from { width: 0 }
-  to { width: 15ch; }
+  to { width: 17ch; }
 }
 @keyframes blink-caret {
   from, to { border-color: transparent }

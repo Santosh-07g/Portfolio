@@ -69,11 +69,11 @@ const Navbar = () => {
                         <span>Home</span>
                     </a>
 
-                <a onClick={()=>setShowMenu(!showMenu)}href="#about" className='relative text-white/80 transition duration-300 hover:text-purple group'>
+                <a onClick={()=>setShowMenu(!showMenu)}href="#about" className='relative text-white/80 text-lg transition duration-300 hover:text-purple group'>
                     <span>About</span>
                 </a>
 
-                <a onClick={()=>setShowMenu(!showMenu)}href="#skills" className='relative text-white/80 transition duration-300 hover:text-purple group'>
+                <a onClick={()=>setShowMenu(!showMenu)}href="#skills" className='relative text-lg text-white/80 transition duration-300 hover:text-purple group'>
                     <span>Skills</span>
                 </a>
 
