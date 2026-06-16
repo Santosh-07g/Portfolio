@@ -21,13 +21,13 @@ const Hero = () => {
             Hi, I'm <span className='text-purple-500'>Santosh Gurkhe</span>
           </h1>
 
-           <h2 className='text-1xl md:text-4xl font-semibold mb-4 typewriter'>
-              SOFTWERE ENGINEER
+           <h2 className='text-1xl md:text-4xl font-semibold mb-1 typewriter'>
+              SOFTWARE ENGINEER
             </h2>
 
-          {/* <p className='text-lg text-gray-300 mb-8 leading-relaxed max-w-lg'>
-            Software Engineer passionate about Full Stack Development, AI, and DSA. Built an AI Mock Interview Platform.
-          </p> */}
+          <p className='text-lg text-gray-300 mb-8 leading-relaxed max-w-lg'>
+            At Mount<span className='text-purple-500'>Blue</span> Softwere Company
+          </p>
 
           {/* Buttons */}
           <div className='flex gap-4 flex-wrap mb-8'>
