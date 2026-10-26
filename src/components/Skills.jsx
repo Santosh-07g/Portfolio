@@ -1,35 +1,49 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FaServer, FaDatabase, FaReact, FaCloud } from 'react-icons/fa'
+import { FaServer, FaDatabase, FaReact, FaCloud, FaCode, FaRobot } from 'react-icons/fa'
 
 const skills = [
+  {
+    icon: FaCode,
+    title: 'CORE PROGRAMMING',
+    description:
+      'Strong problem-solving foundation with 250+ DSA problems solved on LeetCode.',
+    tags: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'Data Structures & Algorithms', 'OOP']
+  },
   {
     icon: FaReact,
     title: 'FRONTEND DEVELOPMENT',
     description:
       'Experience with React.js, Tailwind CSS, and responsive design to create engaging user interfaces.',
-    tags: ['Reactjs', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS']
+    tags: ['Reactjs', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Framer Motion']
   },
   {
     icon: FaServer,
     title: 'BACKEND DEVELOPMENT',
     description:
-      'Proficient in Node.js and RESTful APIs to build scalable server-side applications.',
-    tags: ['Django','Node.js', 'REST API','Django Rest Framework']
+      'Building scalable server-side applications and RESTful APIs with Django, FastAPI and Node.js.',
+    tags: ['Django', 'Django Rest Framework', 'FastAPI', 'Flask', 'Node.js', 'REST API', 'Celery']
   },
   {
     icon: FaDatabase,
     title: 'DATABASE MANAGEMENT',
     description:
-      'Skilled in MySQL and Firebase for efficient data storage and retrieval.',
-    tags: ['MySQL', 'Firebase']
+      'Skilled in relational databases, caching and search for efficient data storage and retrieval.',
+    tags: ['PostgreSQL', 'MySQL', 'Redis', 'Elasticsearch', 'Firebase']
+  },
+  {
+    icon: FaRobot,
+    title: 'AI & DATA',
+    description:
+      'Building LLM-powered apps like chatbots and document Q&A, and working with data in Python.',
+    tags: ['LangChain', 'LangGraph', 'OpenAI API', 'Ollama', 'NumPy', 'Pandas']
   },
   {
     icon: FaCloud,
     title: 'DEPLOYMENT & CI/CD',
     description:
       'Experience with deployment platforms like Vercel and GitHub Actions for seamless delivery.',
-    tags: ['Vercel','GitHub Actions','Render','Railway']
+    tags: ['Git', 'GitHub', 'GitLab', 'GitHub Actions', 'Vercel', 'Render', 'Railway']
   }
 ]
 
@@ -40,7 +54,7 @@ const Skills = () => {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: 'easeOut' }}
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: false, amount: 0.05 }}
       className="py-20 bg-dark-200"
     >
       <div className="container mx-auto px-6">

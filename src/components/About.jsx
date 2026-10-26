@@ -57,7 +57,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="md:w-1/2.5 h-200 rounded-2xl overflow-hidden shadow-lg shadow-black/30"
+            className="w-full md:w-auto h-72 sm:h-96 md:h-200 rounded-2xl overflow-hidden shadow-lg shadow-black/30"
           >
             <img
               src={assets.projectImg3}
@@ -74,7 +74,7 @@ const About = () => {
             viewport={{ once: true }}
             className="md:w-1/2"
           >
-            <div className="rounded-2xl p-8">
+            <div className="rounded-2xl md:p-8">
 
               <h3 className="text-2xl font-semibold mb-6">My Journey</h3>
 

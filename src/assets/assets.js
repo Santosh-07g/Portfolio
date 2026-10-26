@@ -13,6 +13,7 @@ import projectImg5 from '../assets/project5.avif';
 import projectImg6 from '../assets/project6.avif';
 import projectImg7 from '../assets/project7.png';
 import projectImg8 from '../assets/Movie.png';
+import projectImg9 from '../assets/linkedin.png';
 
 
 export const assets = {
@@ -24,7 +25,8 @@ export const assets = {
   projectImg5,
   projectImg6,
   projectImg7,
-  projectImg8
+  projectImg8,
+  projectImg9
 };
 
 

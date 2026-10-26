@@ -6,6 +6,11 @@
   font-family: Saira, sans-serif;
 }
 
+/* keep #hash jumps clear of the fixed navbar */
+html{
+  scroll-padding-top: 5rem;
+}
+
 @theme{
   --color-dark-100:#1a1a1a;
   --color-dark-200:#1f1f1f;

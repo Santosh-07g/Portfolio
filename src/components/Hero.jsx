@@ -10,7 +10,7 @@ const Hero = () => {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       viewport={{ once: true }}
       id='home'
-      className='min-h-screen flex items-center pt-20 pb-16 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a]'
+      className='min-h-screen flex items-center pt-28 md:pt-20 pb-16 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a]'
     >
       <div className='container mx-auto px-6 flex flex-col md:flex-row items-center justify-between'>
 
@@ -21,12 +21,12 @@ const Hero = () => {
             Hi, I'm <span className='text-purple-500'>Santosh Gurkhe</span>
           </h1>
 
-           <h2 className='text-1xl md:text-4xl font-semibold mb-1 typewriter'>
+           <h2 className='text-xl md:text-4xl font-semibold mb-1 typewriter'>
               SOFTWARE ENGINEER
             </h2>
 
           <p className='text-lg text-gray-300 mb-8 leading-relaxed max-w-lg'>
-            At Mount<span className='text-purple-500'>Blue</span> Softwere Company
+            At Mount<span className='text-purple-500'>Blue</span> Software Company
           </p>
 
           {/* Buttons */}
@@ -84,7 +84,7 @@ const Hero = () => {
             <div className='grid grid-cols-3 gap-4 text-center'>
 
               <div>
-                <h4 className='text-2xl font-bold text-purple-400'>200+</h4>
+                <h4 className='text-2xl font-bold text-purple-400'>250+</h4>
                 <p className='text-sm text-gray-400'>Solved</p>
               </div>
 

@@ -11,7 +11,7 @@ const workData = [
   {
     role: "Full Stack Developer Intern",
     company: "Pentagon Space",
-    duration: "Nov-2025 May-2026",
+    duration: "Nov 2025 - May 2026",
     description: "Gaining hands-on experience in full-stack development using Python, HTML, CSS, JavaScript,Reactjs, Django, Numpy and MySQL. Building responsive UI, backend logic, and database connectivity for multiple web applications.",
                   
   }
@@ -20,11 +20,11 @@ const workData = [
 const Work = () => {
   return (
     <motion.div
-      id="experince"
+      id="experience"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: 'easeOut' }}
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: false, amount: 0.05 }}
       className="py-20 bg-dark-100"
     >
       <div className="container mx-auto px-6">
@@ -41,7 +41,7 @@ const Work = () => {
             {workData.map((item, index) => (
               <div
                 key={index}
-                className="relative pl-12 before:content-[''] 
+                className="relative pl-8 md:pl-12 before:content-[''] 
                 before:absolute before:left-0 before:top-0
                 before:w-[2px] before:h-full before:bg-purple
                 cursor-pointer hover:-translate-y-2 transition-all duration-300"
@@ -51,9 +51,9 @@ const Work = () => {
 
                 {/* Content box */}
                 <div className='bg-dark-300 p-6 rounded-2xl'>
-                    <div className="flex justify-between items-start mb-2">
+                    <div className="flex flex-col-reverse items-start gap-2 mb-2 sm:flex-row sm:justify-between">
                         <h3 className="text-xl font-semibold">{item.role}</h3>
-                        <span className="px-3 py-1 bg-purple/20 text-purple rounded-full text-xs md:text-sm">{item.duration}</span>
+                        <span className="shrink-0 whitespace-nowrap px-3 py-1 bg-purple/20 text-purple rounded-full text-xs md:text-sm">{item.duration}</span>
                     </div>
                     <p className='text-gray-400 mb-2'>{item.company}</p>
                     <p className="text-gray-300">{item.description}</p>

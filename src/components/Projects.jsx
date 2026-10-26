@@ -6,6 +6,13 @@ import { FaArrowRight } from 'react-icons/fa'
 
 const projects = [
   {
+    title: "LinkedIn Clone",
+    description: "A professional networking platform built with Django and PostgreSQL, featuring profiles, posts, connections, threaded comments, messaging, notifications and Elasticsearch-powered search.",
+    image: assets.projectImg9,
+    tech: ["Python", "Django", "PostgreSQL", "Celery", "Redis", "Elasticsearch"],
+    demoLink: "https://linkedin-clone-project-t5n4.onrender.com/"
+  },
+  {
     title: "AI Mock Interview Application",
     description: "An AI-powered mock interview app using React, Firebase and OpenAI API.",
     image: assets.projectImg7,
@@ -39,7 +46,7 @@ const Projects = () => {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: 'easeOut' }}
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: false, amount: 0.05 }}
       className="py-20 bg-dark-200"
     >
       <div className="container mx-auto px-6">
