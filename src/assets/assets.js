@@ -12,8 +12,8 @@ import projectImg4 from '../assets/project4.avif';
 import projectImg5 from '../assets/project5.avif';
 import projectImg6 from '../assets/project6.avif';
 import projectImg7 from '../assets/project7.png';
-import projectImg8 from '../assets/Movie.png';
-import projectImg9 from '../assets/linkedin.png';
+import projectImg8 from '../assets/Movie.webp';
+import projectImg9 from '../assets/linkedin.webp';
 
 
 export const assets = {
