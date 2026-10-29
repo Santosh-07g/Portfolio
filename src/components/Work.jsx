@@ -1,21 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-
-const workData = [
-  {
-    role: "Software Engineer",
-    company: "MountBlue Technologies",
-    duration: "Jun 2026 - Present",
-    description: "Working on full-stack software development with a focus on building scalable web applications. Contributing to frontend and backend development using modern frameworks, REST APIs, and database design while collaborating in an agile team environment.",
-  },
-  {
-    role: "Full Stack Developer Intern",
-    company: "Pentagon Space",
-    duration: "Nov 2025 - May 2026",
-    description: "Gaining hands-on experience in full-stack development using Python, HTML, CSS, JavaScript,Reactjs, Django, Numpy and MySQL. Building responsive UI, backend logic, and database connectivity for multiple web applications.",
-                  
-  }
-]
+import { workData } from '../data/portfolio'
+import { trackPointer } from '../utils/trackPointer'
+import SectionHeading from './SectionHeading'
 
 const Work = () => {
   return (
@@ -28,9 +15,7 @@ const Work = () => {
       className="py-20 bg-dark-100"
     >
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-4">
-          Work <span className="text-purple">Experience</span>
-        </h2>
+        <SectionHeading index="04" label="experience" plain="Work" accent="Experience" />
 
         <p className="text-gray-400 text-center max-w-2xl mx-auto mb-16">
           My Journey so far
@@ -50,7 +35,7 @@ const Work = () => {
                 <div className="absolute left-[-0.5rem] top-0 w-6 h-6 bg-purple rounded-full" />
 
                 {/* Content box */}
-                <div className='bg-dark-300 p-6 rounded-2xl'>
+                <div onPointerMove={trackPointer} className='glow-card bg-dark-300 p-6 rounded-2xl'>
                     <div className="flex flex-col-reverse items-start gap-2 mb-2 sm:flex-row sm:justify-between">
                         <h3 className="text-xl font-semibold">{item.role}</h3>
                         <span className="shrink-0 whitespace-nowrap px-3 py-1 bg-purple/20 text-purple rounded-full text-xs md:text-sm">{item.duration}</span>

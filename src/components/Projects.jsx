@@ -1,43 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import ProjectsCard from './ProjectsCard'
-import { assets } from '../assets/assets'
+import SectionHeading from './SectionHeading'
+import { stagger } from '../animations'
+import { projects, profile } from '../data/portfolio'
 import { FaArrowRight } from 'react-icons/fa'
-
-const projects = [
-  {
-    title: "LinkedIn Clone",
-    description: "A professional networking platform built with Django and PostgreSQL, featuring profiles, posts, connections, threaded comments, messaging, notifications and Elasticsearch-powered search.",
-    image: assets.projectImg9,
-    tech: ["Python", "Django", "PostgreSQL", "Celery", "Redis", "Elasticsearch"],
-    demoLink: "https://linkedin-clone-project-t5n4.onrender.com/"
-  },
-  {
-    title: "AI Mock Interview Application",
-    description: "An AI-powered mock interview app using React, Firebase and OpenAI API.",
-    image: assets.projectImg7,
-    tech: ["JavaScript", "TypeScript", "React", "Firebase", "Vapi API"],
-    demoLink: "https://mock-interview-pg48.vercel.app/",
-    codeLink: "https://github.com/Santosh-07g/mock-interview.git"
-  },
-  {
-    title: "Portfolio Website",
-    description: "Personal portfolio built with React and Tailwind CSS.",
-    image: assets.projectImg4,
-    tech: ["React", "Javascript", "Tailwind", "Framer Motion"],
-    demoLink: "https://portfolio-8zfo.vercel.app/",
-    codeLink: "https://github.com/Santosh-07g/portfolio"
-  },
-  {
-    title: "Movie Ticket Booking System ",
-    description: "Developed a full-stack movie ticket booking web application using Python and Django for backend development.",
-    image: assets.projectImg8,
-    tech: ["Python", "Django", "MySQL", "Javascript","HTML and CSS"],
-    demoLink: "https://pmax-cinema-production.up.railway.app/",
-    codeLink: "https://github.com/Santosh-07g/pmax-cinema"
-  }
-]
-
 
 const Projects = () => {
   return (
@@ -50,21 +17,25 @@ const Projects = () => {
       className="py-20 bg-dark-200"
     >
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-4">
-          My <span className="text-purple">Projects</span>
-        </h2>
+        <SectionHeading index="03" label="projects" plain="My" accent="Projects" />
 
         <p className="text-gray-400 text-center max-w-2xl mx-auto mb-16">
           Projects I build to bring ideas to life.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+        >
           {projects.map((project, index) => (
             <ProjectsCard key={index} {...project} />
           ))}
-        </div>
+        </motion.div>
         <div className="text-center mt-12">
-          <a href="https://github.com/dashboard" className="inline-flex items-center px-6 py-3 border border-purple font-medium rounded-lg hover:bg-purple/20 transition duration-300">
+          <a href={`${profile.github}?tab=repositories`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 border border-purple font-medium rounded-lg hover:bg-purple/20 transition duration-300">
             <span>View More Projects</span>
             <FaArrowRight className='ml-2'/>
           </a>

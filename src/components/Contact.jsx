@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
-import { FaGithub, FaLinkedin, FaMapMarkerAlt, FaPhone, FaTwitter } from 'react-icons/fa' 
-import { FaEnvelope } from 'react-icons/fa' 
+import { FaGithub, FaLinkedin, FaMapMarkerAlt, FaPhone } from 'react-icons/fa'
+import { FaEnvelope } from 'react-icons/fa'
+import { profile } from '../data/portfolio'
+import SectionHeading from './SectionHeading'
 
 // Initialize EmailJS (do this once)
 emailjs.init('o-u4QspTBx3AhGU9o')
@@ -81,9 +83,7 @@ const Contact = () => {
       viewport={{ once: false, amount: 0.05 }}
       className="py-20 bg-dark-200">
         <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center mb-4">
-                Get in <span className="text-purple">Touch</span>
-            </h2>
+            <SectionHeading index="05" label="contact" plain="Get in" accent="Touch" />
             <p className="text-gray-400 text-center max-w-2xl mx-auto">
                 Have a project in mind or want to collaborate? Feel free to reach out!
             </p>
@@ -96,6 +96,7 @@ const Contact = () => {
                             <input 
                               className='w-full bg-dark-300 border border-dark-400 rounded-lg px-4 py-3 outline-none focus:border-purple transition' 
                               type="text"
+                              id="name"
                               name="name"
                               value={formData.name}
                               onChange={handleChange}
@@ -107,6 +108,7 @@ const Contact = () => {
                             <input 
                               className='w-full bg-dark-300 border border-dark-400 rounded-lg px-4 py-3 outline-none focus:border-purple transition' 
                               type="email"
+                              id="email"
                               name="email"
                               value={formData.email}
                               onChange={handleChange}
@@ -116,7 +118,8 @@ const Contact = () => {
                         <div>
                             <label htmlFor="message" className="block text-gray-300 mb-1 mt-2">Your Message</label>
                             <textarea 
-                              className='w-full h-40 bg-dark-300 border border-dark-400 rounded-lg px-4 py-3 outline-none focus:border-purple transition' 
+                              className='w-full h-40 bg-dark-300 border border-dark-400 rounded-lg px-4 py-3 outline-none focus:border-purple transition'
+                              id="message"
                               name="message"
                               value={formData.message}
                               onChange={handleChange}
@@ -138,7 +141,7 @@ const Contact = () => {
                         <button 
                           type="submit" 
                           disabled={status === 'loading'}
-                          className='w-full px-6 py-3 mt-4 bg-purple font-medium rounded-lg
+                          className='w-full px-6 py-3 mt-4 bg-purple text-on-accent font-medium rounded-lg
                            hover:bg-purple-700 transition duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed'>
                           {status === 'loading' ? 'Sending...' : 'Send Message'}
                         </button>
@@ -153,7 +156,7 @@ const Contact = () => {
                         </div>
                         <div>
                           <h3 className="text-lg font-semibold mb-1">Location</h3>
-                          <p className="text-gray-400">Bangalore, Karnataka</p>
+                          <p className="text-gray-400">{profile.location}</p>
                         </div>
                     </div>
 
@@ -164,8 +167,9 @@ const Contact = () => {
                         </div>
                         <div>
                           <h2 className="text-lg font-semibold mb-1">Email</h2>
-                          <a href="mailto:santoshgurkhe602@gmail.com" className="text-gray-400 hover:text-purple">
-                            santoshgurkhe602@gmail.com
+                          {/* py + matching negative margin = bigger tap area, same layout */}
+                          <a href={`mailto:${profile.email}`} className="inline-block py-2.5 -my-2.5 text-gray-400 hover:text-purple">
+                            {profile.email}
                           </a>
                         </div>
                     </div>
@@ -177,25 +181,21 @@ const Contact = () => {
                         </div>
                         <div>
                           <h2 className="text-lg font-semibold mb-1">Phone</h2>
-                          <a href="tel:+919880232612" className="text-gray-400 hover:text-purple">
-                          +91 9880232612
+                          <a href={`tel:${profile.phone.replace(/\s/g, '')}`} className="inline-block py-2.5 -my-2.5 text-gray-400 hover:text-purple">
+                          {profile.phone}
                           </a>
                         </div>
                     </div>
                     <div className='pt-4'>
                         <h3 className='text-lg font-semibold mb-4'>Follow Me</h3>
                         <div className="flex space-x-4">
-                            <a href="https://github.com/dashboard" className='w-12 h-12 bg-dark-300 flex items-center justify-center 
-                            rounded-full text-white hover:bg-purple hover:text-white transition duration-300'>
+                            <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className='w-12 h-12 bg-dark-300 flex items-center justify-center
+                            rounded-full text-white hover:bg-purple hover:text-on-accent transition duration-300'>
                                <FaGithub />
                             </a>
-                            <a href="https://www.linkedin.com/in/santosh49/" className='w-12 h-12 bg-dark-300 flex items-center justify-center 
-                            rounded-full text-blue-800 hover:bg-blue-800 hover:text-white transition duration-300'>
+                            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className='w-12 h-12 bg-dark-300 flex items-center justify-center
+                            rounded-full text-blue hover:bg-blue hover:text-on-accent transition duration-300'>
                                <FaLinkedin />
-                            </a>
-                            <a href="https://x.com/home" className='w-12 h-12 bg-dark-300 flex items-center justify-center 
-                            rounded-full text-blue hover:bg-blue hover:text-white transition duration-300'>
-                               <FaTwitter />
                             </a>
                         </div>
                     </div>

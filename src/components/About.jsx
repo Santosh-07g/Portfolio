@@ -1,6 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { assets } from '../assets/assets'
+import { trackPointer } from '../utils/trackPointer'
+import SectionHeading from './SectionHeading'
 import { FaTools, FaProjectDiagram, FaGraduationCap, FaBullseye} from 'react-icons/fa'
 
 /* About cards data */
@@ -13,7 +15,7 @@ const aboutInfo = [
   {
     icon: FaTools,
     title: 'Skills',
-    description: 'Python,MySQL,Reactjs, JavaScript and DSA concepts'
+    description: 'Python, MySQL, Reactjs, JavaScript and DSA concepts'
   },
   {
     icon: FaProjectDiagram,
@@ -40,16 +42,15 @@ const About = () => {
       <div className="container mx-auto px-6">
 
         {/* Heading */}
-        <h2 className="text-3xl font-bold text-center mb-4">
-          About <span className="text-purple">Me</span>
-        </h2>
+        <SectionHeading index="01" label="about" plain="About" accent="Me" />
 
         <p className="text-gray-400 text-center max-w-2xl mx-auto mb-16">
           Get to know more about my background and passion
         </p>
 
         {/* Image + Content */}
-        <div className="flex flex-col md:flex-row items-start gap-12">
+        {/* image above text until lg: beside each other the text column is too narrow on tablets */}
+        <div className="flex flex-col lg:flex-row items-start gap-12">
 
           {/* Image */}
           <motion.div
@@ -57,11 +58,12 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="w-full md:w-auto h-72 sm:h-96 md:h-200 rounded-2xl overflow-hidden shadow-lg shadow-black/30"
+            className="w-full lg:w-auto h-72 sm:h-96 lg:h-200 rounded-2xl overflow-hidden shadow-lg shadow-black/30"
           >
             <img
               src={assets.projectImg3}
               alt="About profile"
+              loading="lazy"
               className="w-full h-full object-cover object-top"
             />
           </motion.div>
@@ -72,9 +74,9 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="md:w-1/2"
+            className="w-full lg:w-1/2"
           >
-            <div className="rounded-2xl md:p-8">
+            <div className="rounded-2xl lg:p-8">
 
               <h3 className="text-2xl font-semibold mb-6">My Journey</h3>
 
@@ -101,11 +103,13 @@ const About = () => {
               </p> */}
 
               {/* Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+              {/* 2 cols when the text spans the page; 1 col in the narrow side column at lg; 2 again at xl */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6 mt-10">
                 {aboutInfo.map((data, index) => (
                   <div
                     key={index}
-                    className="bg-dark-300 rounded-2xl p-6 transition-transform duration-300 hover:-translate-y-2 cursor-pointer"
+                    onPointerMove={trackPointer}
+                    className="glow-card bg-dark-300 rounded-2xl p-6 transition-transform duration-300 hover:-translate-y-2 cursor-pointer"
                   >
                     <div className="text-purple text-4xl mb-4">
                       <data.icon />
@@ -113,7 +117,7 @@ const About = () => {
                     <h3 className="text-xl font-semibold mb-3">
                       {data.title}
                     </h3>
-                    <p className="text-gray-400">
+                    <p className="text-gray-400 break-words">
                       {data.description}
                     </p>
                   </div>

@@ -2,11 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.jpg" />
+    <!-- SVG for modern browsers, .ico as the fallback, PNG for iOS home screens -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Santosh Portfolio</title>
+    <title>Santosh Gurkhe | Software Engineer</title>
+    <meta name="description" content="Portfolio of Santosh Gurkhe, a software engineer building full-stack web apps with Python, Django, React and AI. See projects, skills and experience." />
+    <meta name="author" content="Santosh Gurkhe" />
+    <meta name="theme-color" content="#21222c" />
+
+    <!-- Open Graph / link previews (LinkedIn, WhatsApp, Slack) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Santosh Gurkhe | Software Engineer" />
+    <meta property="og:description" content="Full-stack projects, skills and experience of Santosh Gurkhe." />
+    <meta property="og:url" content="https://portfolio-8zfo.vercel.app/" />
+    <meta property="og:image" content="https://portfolio-8zfo.vercel.app/og-image.jpg" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Santosh Gurkhe | Software Engineer" />
+    <meta name="twitter:description" content="Full-stack projects, skills and experience of Santosh Gurkhe." />
+    <meta name="twitter:image" content="https://portfolio-8zfo.vercel.app/og-image.jpg" />
+
+    <!-- apply the saved color theme before first paint so there is no flash -->
+    <script>
+      try {
+        var saved = localStorage.getItem('theme');
+        if (['dracula', 'tokyo-night', 'catppuccin', 'gruvbox'].indexOf(saved) !== -1) {
+          document.documentElement.setAttribute('data-theme', saved);
+        }
+      } catch (e) {}
+    </script>
   </head>
-  <body class="bg-dark-100 text-[#f8fafc]">
+  <body class="bg-dark-100 text-white">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

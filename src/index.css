@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
 
@@ -6,30 +7,133 @@
   font-family: Saira, sans-serif;
 }
 
-/* keep #hash jumps clear of the fixed navbar */
+/* `*` above hits every element directly, so inheritance alone can't switch the
+   font; this makes .font-mono apply to the whole subtree (terminal, code bits) */
+.font-mono,
+.font-mono *{
+  font-family: var(--font-mono);
+}
+
 html{
+  color-scheme: dark;
+  /* keep #hash jumps clear of the fixed navbar */
   scroll-padding-top: 5rem;
 }
 
-@theme{
-  --color-dark-100:#1a1a1a;
-  --color-dark-200:#1f1f1f;
-  --color-dark-300:#2d2d2d;
-  --color-dark-400:#3d3d3d;
-  --color-purple:#8B5CF6;
-  --color-pink:#EC4899;
-  --color-blue:#3B82F6;
+body{
+  background: var(--c-bg);
+  color: var(--c-text);
+}
+
+::selection{
+  background: var(--c-accent);
+  color: var(--c-on-accent);
+}
+
+/* ---- Themes -------------------------------------------------------------
+   Every color on the site comes from these variables. The first selector also
+   makes Dracula the fallback when no theme is set. Switch with
+   document.documentElement.dataset.theme (see src/theme.js). */
+:root,
+[data-theme='dracula']{
+  --c-bg:#21222c;
+  --c-surface:#282a36;
+  --c-card:#343746;
+  --c-border:#44475a;
+  --c-text:#f8f8f2;
+  --c-text-2:#cfd2e6;
+  --c-muted:#a9b0cc;
+  --c-accent:#bd93f9;
+  --c-accent-hover:#a97df5;
+  --c-accent-2:#ff79c6;
+  --c-accent-3:#8be9fd;
+  --c-on-accent:#1e1f29;
+}
+
+[data-theme='tokyo-night']{
+  --c-bg:#16161e;
+  --c-surface:#1a1b26;
+  --c-card:#24283b;
+  --c-border:#3b4261;
+  --c-text:#c0caf5;
+  --c-text-2:#b0b9e0;
+  --c-muted:#8f98c0;
+  --c-accent:#7aa2f7;
+  --c-accent-hover:#6590ef;
+  --c-accent-2:#bb9af7;
+  --c-accent-3:#7dcfff;
+  --c-on-accent:#16161e;
+}
+
+[data-theme='catppuccin']{
+  --c-bg:#181825;
+  --c-surface:#1e1e2e;
+  --c-card:#313244;
+  --c-border:#45475a;
+  --c-text:#cdd6f4;
+  --c-text-2:#bac2de;
+  --c-muted:#a6adc8;
+  --c-accent:#cba6f7;
+  --c-accent-hover:#b88ef2;
+  --c-accent-2:#f5c2e7;
+  --c-accent-3:#89b4fa;
+  --c-on-accent:#11111b;
+}
+
+[data-theme='gruvbox']{
+  --c-bg:#1d2021;
+  --c-surface:#282828;
+  --c-card:#3c3836;
+  --c-border:#504945;
+  --c-text:#ebdbb2;
+  --c-text-2:#d5c4a1;
+  --c-muted:#bdae93;
+  --c-accent:#fe8019;
+  --c-accent-hover:#ea6a05;
+  --c-accent-2:#d3869b;
+  --c-accent-3:#83a598;
+  --c-on-accent:#1d2021;
+}
+
+/* `inline` makes utilities read the variable directly, so they follow the theme */
+@theme inline{
+  --color-dark-100:var(--c-bg);
+  --color-dark-200:var(--c-surface);
+  --color-dark-300:var(--c-card);
+  --color-dark-400:var(--c-border);
+
+  --color-purple:var(--c-accent);
+  --color-purple-400:var(--c-accent);
+  --color-purple-500:var(--c-accent);
+  --color-purple-600:var(--c-accent);
+  --color-purple-700:var(--c-accent-hover);
+  --color-pink:var(--c-accent-2);
+  --color-pink-500:var(--c-accent-2);
+  --color-blue:var(--c-accent-3);
+  --color-on-accent:var(--c-on-accent);
+
+  --color-white:var(--c-text);
+  --color-gray-300:var(--c-text-2);
+  --color-gray-400:var(--c-muted);
+
+  --font-mono:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* faint dot grid behind the hero, like an editor canvas */
+.code-grid{
+  background-image: radial-gradient(color-mix(in srgb, var(--c-text) 16%, transparent) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 
 .typewriter{
   display: inline-block;   /* 🔴 REQUIRED */
-  color: white;            /* ensure visibility */
-  border-right: 0.15em solid #8B5CF6;
+  color: var(--c-text);    /* ensure visibility */
+  border-right: 0.15em solid var(--c-accent);
   white-space: nowrap;
   overflow: hidden;
   width: 0;
-  animation: typing 3s steps(17, end) forwards,
-             blink-caret 0.75s step-end 4;
+  animation: typing 3s steps(17, end) 0.5s forwards,
+             blink-caret 0.75s step-end 0.5s 4;
 }
 
 
@@ -39,5 +143,109 @@ html{
 }
 @keyframes blink-caret {
   from, to { border-color: transparent }
-  50% { border-color: #8B5CF6; }
+  50% { border-color: var(--c-accent); }
+}
+
+@keyframes cursor-blink {
+  50% { opacity: 0 }
+}
+
+/* ---- Motion ---------------------------------------------------------------- */
+
+/* code tokens drifting up behind the hero (HeroBackdrop) */
+.code-glyph{
+  position: absolute;
+  bottom: -8%;
+  opacity: 0;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  white-space: nowrap;
+  animation: glyph-rise linear infinite;
+  will-change: transform, opacity;
+}
+@keyframes glyph-rise {
+  0%   { transform: translateY(0) rotate(-6deg); opacity: 0 }
+  10%  { opacity: 0.2 }
+  90%  { opacity: 0.2 }
+  100% { transform: translateY(-115vh) rotate(8deg); opacity: 0 }
+}
+
+/* soft light under the mouse in the hero; --mx/--my come from trackPointer */
+.hero-spot{
+  background: radial-gradient(
+    560px circle at var(--mx, -999px) var(--my, -999px),
+    color-mix(in srgb, var(--c-accent) 16%, transparent),
+    transparent 65%
+  );
+}
+
+/* cards: a glow and a lit border that follow the cursor on hover */
+.glow-card{
+  position: relative;
+}
+.glow-card::before,
+.glow-card::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.glow-card::before{
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--c-accent) 14%, transparent),
+    transparent 70%
+  );
+}
+.glow-card::after{
+  padding: 1px; /* border thickness */
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    var(--c-accent),
+    transparent 70%
+  );
+  /* punch out the middle so only the 1px ring shows */
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+/* mouse only: on touch screens :hover sticks after a tap and would leave the glow on */
+@media (hover: hover) {
+  .glow-card:hover::before,
+  .glow-card:hover::after{
+    opacity: 1;
+  }
+}
+
+/* terminal lines slide in as they are printed */
+.term-entry{
+  animation: line-in 0.25s ease-out;
+}
+@keyframes line-in {
+  from { opacity: 0; transform: translateY(5px) }
+  to   { opacity: 1; transform: none }
+}
+
+/* briefly added by setTheme() so colors cross-fade instead of snapping */
+.theme-fade,
+.theme-fade *,
+.theme-fade *::before,
+.theme-fade *::after{
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease,
+              fill 0.4s ease, stroke 0.4s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter{ animation: none; width: 17ch; }
+  .code-glyph{ display: none; }
+  .hero-spot{ display: none; }
+  .term-entry{ animation: none; }
+  .theme-fade,
+  .theme-fade *,
+  .theme-fade *::before,
+  .theme-fade *::after{ transition: none !important; }
 }
